@@ -1,0 +1,17 @@
+Package: conn.qk
+Version: 0.1
+Title: Create easy to access function for setting up connections to
+        databases
+Description: An easier method of gettig queries through R by setting up database access apriori. Also modular and can add new connections (beta).
+Authors@R: person("Daniel", "Song", email = "danssong@gmail.com", role = c("aut", "cre"))
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 2.10)
+Imports: DBI, RPostgreSQL, RMySQL, dplyr, data.table
+ByteCompile: true
+RoxygenNote: 6.0.1
+NeedsCompilation: no
+Packaged: 2017-10-26 16:55:58 UTC; danielssong
+Author: Daniel Song [aut, cre]
+Maintainer: Daniel Song <danssong@gmail.com>
