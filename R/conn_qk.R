@@ -1,7 +1,7 @@
 #' function to integrate db connections
 #' @param query The query, as a string
 #' @param db The database type: 'redshift' or 'ratt'.
-#' @param table The type of data returned. Default is to return object as dataframe.
+#' @param output The type of data returned. Default is to return object as dataframe.
 #'   The options are: 'df' (dataframe) or 'dt' (data.table). More to come.
 #' @return these functions will return a query
 #' @importFrom RPostgreSQL PostgreSQL
@@ -11,10 +11,14 @@
 #' @import DBI
 #' @export
 # create connection function
-conn_qk_1 <- function(query, db, table) {
+conn_qk_1 <- function(query, db, output) {
   if (missing(query)) {
     stop('you need to specify your query')
   }
+  if (missing(output)) {
+    output = 'dt'
+  }
+
   if (db == 'ratt') {
     temp_conn = DBI::dbConnect(
       RMySQL::MySQL(),
@@ -38,9 +42,9 @@ conn_qk_1 <- function(query, db, table) {
 
   temp_q = DBI::dbGetQuery(conn = temp_conn, statement = query)
 
-  if (table == 'dt') {
+  if (output == 'dt') {
     data.table::setDT(temp_q)
-  } else if (missing(table) | table == 'df') {
+  } else if (missing(output) | output == 'df') {
     temp_q = temp_q
   } else {
     temp_q = temp_q
