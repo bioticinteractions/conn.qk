@@ -15,10 +15,6 @@ conn_qk_1 <- function(query, db, output) {
   if (missing(query)) {
     stop('you need to specify your query')
   }
-  if (missing(output)) {
-    output = 'dt'
-  }
-
   if (db == 'ratt') {
     temp_conn = DBI::dbConnect(
       RMySQL::MySQL(),
