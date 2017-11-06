@@ -6,7 +6,6 @@
 #' @return these functions will return a query
 #' @importFrom RPostgreSQL PostgreSQL
 #' @importFrom RMySQL MySQL
-#' @importFrom dplyr tbl
 #' @importFrom data.table setDT
 #' @import DBI
 #' @export
