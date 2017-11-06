@@ -1,8 +1,0 @@
-exit()
-exit
-quit()
-setwd('~/cloud/Dropbox/R/new_package/conn.qk/')
-library(devtools)#
-devtools::check()#
-devtools::document()#
-devtools::build()
