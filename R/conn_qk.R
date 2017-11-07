@@ -36,7 +36,7 @@ conn_qk_1 <- function(query, db, output) {
       port = 'PORT'
     )
   } else {
-    stop('check your db parameters ', db, ' is not a valid option')
+    stop('check your db argument ', db, ' is not a valid option')
   }
 
   temp_q = DBI::dbGetQuery(conn = temp_conn, statement = query)
