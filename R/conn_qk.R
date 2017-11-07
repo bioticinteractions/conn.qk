@@ -40,7 +40,8 @@ conn_qk_1 <- function(query, db, output) {
   }
 
   temp_q = DBI::dbGetQuery(conn = temp_conn, statement = query)
-
+  DBI::dbDisconnect(conn = temp_conn)
+  
   if (output == 'dt') {
     data.table::setDT(temp_q)
   } else if (output == 'df') {
